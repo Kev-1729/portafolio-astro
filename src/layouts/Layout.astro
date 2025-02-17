@@ -1,0 +1,52 @@
+---
+interface Props {
+  pageTitle?: string;
+}
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="og:description"
+      content="Software Engineer from Lima. Dive into my projects, tutorials, and digital exploration. Always learning, always crafting."
+    />
+    <meta name="author" />
+    <meta name="og:title" content="Kevin Tupac" />
+    <meta
+      name="og:description"
+      content="Software Engineer from Lima. Dive into my projects, tutorials, and digital exploration. Always learning, always crafting."
+    />
+    <meta name="og:site_name" content="Kevin Tupac" />
+    <link rel="icon" href="/imagenes/imagen1.png" />
+    <title>Portafolio | {pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Arial", sans-serif;
+    text-decoration: none;
+  }
+
+  /* Fondo y estructura general */
+  body {
+    background-color: #131b4d;
+    color: #f8f9fa;
+  }
+  h2 {
+    font-size: 3em;
+    padding-bottom: 1em;
+    padding-top: 0.2em;
+  }
+</style>
