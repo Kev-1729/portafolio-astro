@@ -1,0 +1,60 @@
+---
+const { work, company, date, description, explink } = Astro.props;
+---
+
+<div class="experience">
+  <div class="position-header">
+    <div>
+      <h3>{work}</h3>
+      <span class="company">{company}</span>
+    </div>
+    <span class="date">{date}</span>
+  </div>
+  <p class="description">
+    {description}
+  </p>
+  <a href={explink} class="more-link" target="_blank" rel="noopener noreferrer"
+    >More Information</a
+  >
+</div>
+<style>
+  .experience {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 800px;
+  }
+
+  .position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+
+  .position-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: #131b4d;
+  }
+
+  .company {
+    color: #131b4d;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .date {
+    color: #0984e3;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .description {
+    color: #131b4d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+</style>
