@@ -32,17 +32,14 @@
           download="Kevin-Tupac-CV.pdf"
           class="btn btn-outline-success me-2"
         >
-          <span>Descargar CV</span>
+          <span class="pc">Download CV</span>
+          <span class="movil">Down. CV</span>
         </a>
       </div>
     </div>
     <!-- Imagen a la derecha -->
     <div class="image-container">
-      <img
-        src="/img/imagen1.png"
-        alt="Imagen de Kevin"
-        class="img-fluid rounded shadow-lg"
-      />
+      <img src="/img/imagen1.png" alt="Imagen de Kevin" />
     </div>
   </div>
 </header>
@@ -50,7 +47,7 @@
 <style>
   /* ------------------ Hero Section ------------------ */
   .hero-section {
-    height: 100vh;
+    min-height: 100vh;
     /*width: 100vw;
     margin-left: calc(-50vw + 50%);*/
     display: flex;
@@ -67,7 +64,8 @@
     justify-content: center;
     gap: 50px;
     backdrop-filter: blur(5px);
-    width: 1000px;
+    max-width: 1000px;
+    width: 100%;
   }
   .text-content {
     display: flex;
@@ -98,16 +96,6 @@
     object-fit: cover;
   }
 
-  /* Overlay para la imagen */
-  .img-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #d1e7ff;
-    z-index: -1;
-    border-radius: 10px;
-    transform: translate(10px, 10px);
-  }
   /* ------------------ Botones ------------------ */
   .links {
     display: flex;
@@ -156,6 +144,9 @@
     color: black;
   }
 */
+  .movil {
+    display: none;
+  }
   /* ------------------ Media Queries ------------------ */
   @media (width< 770px) {
     /* Navbar centrado y con mayor separación */
@@ -180,6 +171,26 @@
     .image-container {
       width: 100%;
       padding: 0 20px 0 20px;
+    }
+  }
+  @media (max-width: 380px) {
+    .text-content h1 {
+      font-size: 1.7rem;
+    }
+
+    .text-content p {
+      font-size: 1rem;
+    }
+
+    .image-container img {
+      height: 200px;
+    }
+
+    .movil {
+      display: block;
+    }
+    .pc {
+      display: none;
     }
   }
 </style>
