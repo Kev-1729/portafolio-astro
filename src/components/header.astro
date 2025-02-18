@@ -155,30 +155,30 @@ import { Icon } from "astro-icon/components";
     .hero-section .container {
       flex-direction: column;
       text-align: center;
-      gap: 10px;
     }
     .text-content {
-      margin: 0 0 20px 0;
       width: 100%;
       padding: 0 20px 0 20px;
     }
-    .text-content h1 {
-      font-size: 2.5em;
-    }
+
     .image-container {
       width: 100%;
       padding: 0 20px 0 20px;
     }
   }
   @media (max-width: 380px) {
-    .text-content h1 {
-      font-size: 1.7rem;
+    .hero-section .container {
+      justify-content: start;
     }
-
+    .text-content {
+      gap: 0px;
+    }
     .text-content p {
       font-size: 1rem;
     }
-
+    .text-content h1 {
+      font-size: 2.5em;
+    }
     .image-container img {
       height: 200px;
     }
