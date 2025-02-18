@@ -1,6 +1,6 @@
-<section id="aboutme" class="about-section">
+<div id="aboutme" class="about-section">
   <div class="container-about">
-    <h2 class="title-about title-section">About me</h2>
+    <h2 class="title-section">About me</h2>
     <p class="p-about">
       I am passionate about technology, learning, and innovation. I enjoy
       exploring new ideas, solving complex problems, and sharing knowledge with
@@ -12,19 +12,19 @@
       curiosity, and continuous improvement to achieve great goals. I am always open
       to new challenges and opportunities to evolve both professionally and personally.
     </p>
-    <h2 class="title-about">Let's me help you</h2>
+    <h3 class="title-about text-center">Let's me help you</h3>
     <div class="block">
       <div class="block1">
-        <h3>Out Location</h3>
+        <h4>Out Location</h4>
         <p>Santa Anita - Lima - Perú</p>
-        <h3>Phone Number</h3>
+        <h4>Phone Number</h4>
         <p>+51 971427792</p>
       </div>
       <div class="block2">
-        <h3>Email Addreess</h3>
+        <h4>Email Addreess</h4>
         <p>kevin.tupac@unmsm.edu.pe</p>
         <p>kevin.tupac.dev@gmail.com</p>
-        <h3>How Can I Help You?</h3>
+        <h4>How Can I Help You?</h4>
         <p>
           Tell me about your problem—two brains are better than one! Let’s solve
           it together.
@@ -32,12 +32,12 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <style>
   .about-section {
     width: 100%;
-    height: 100hv;
+
     display: flex;
     justify-content: center;
   }
@@ -45,7 +45,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
+  }
+  h3 {
+    margin: 20px 0 30px;
   }
   p {
     text-align: justify;
@@ -58,5 +61,14 @@
   .block1,
   .block2 {
     width: 100%;
+  }
+  @media (width < 770px) {
+    .block {
+      flex-direction: column;
+      gap: 0px;
+    }
+    .container-about {
+      width: 80%;
+    }
   }
 </style>

@@ -30,7 +30,7 @@ const { imagen, title, description, tag } = Astro.props as Props;
     display: flex;
     flex-direction: row;
     gap: 25px;
-    backdrop-filter: blur(5px);
+    max-width: 800px;
   }
   .img-proyecto {
     border-radius: 10px;
@@ -54,6 +54,7 @@ const { imagen, title, description, tag } = Astro.props as Props;
   .card-information p {
     color: white;
     font-size: 1em;
+    margin-bottom: 0 !important;
   }
 
   .tags {
@@ -99,5 +100,10 @@ const { imagen, title, description, tag } = Astro.props as Props;
   .button:hover {
     background-color: #777;
     color: white;
+  }
+  @media (width < 750px) {
+    .card-proyecto {
+      flex-direction: column;
+    }
   }
 </style>

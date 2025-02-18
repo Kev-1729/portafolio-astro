@@ -1,6 +1,6 @@
-<section id="contacto" class="contact-section">
+<div id="contacto" class="contact-section">
   <div class="container-contact">
-    <h2 class="text-center">Send us a Message</h2>
+    <h2 class="text-center">Contact me</h2>
     <div class="row">
       <form
         id="contactForm"
@@ -44,7 +44,7 @@
       </form>
     </div>
   </div>
-</section>
+</div>
 <style>
   /* ------------------ Contact Section ------------------ */
   .contact-section {
@@ -63,7 +63,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: #000;
-    width: 60%;
+    width: 80%;
   }
   form {
     width: 100%;
@@ -72,5 +72,12 @@
     border-radius: 5px;
     padding: 10px;
     font-size: 1.1em;
+  }
+
+  @media (width < 770px) {
+    .contact-section .row {
+      width: 87%;
+      padding: 20px 15px 20px 15px;
+    }
   }
 </style>

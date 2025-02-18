@@ -1,0 +1,30 @@
+---
+import AboutMe from "../components/aboutme.astro";
+import Contact from "../components/contact.astro";
+---
+
+<section class="about-contact">
+  <div class="container-about-contact">
+    <AboutMe />
+    <Contact />
+  </div>
+</section>
+<style>
+  .about-contact {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenedor interno */
+    width: 100%;
+  }
+  .container-about-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1400px;
+    width: 100%;
+  }
+  @media (max-width: 770px) {
+    .container-about-contact {
+      flex-direction: column;
+    }
+  }
+</style>

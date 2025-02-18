@@ -10,22 +10,21 @@ import CardExperience from "./card-experience.astro";
     <CardExperience
       work="Automation Engineer"
       company="Freelancer"
-      date="September 2024 - November 2024"
+      date="Sep. 2024 - Nov. 2024"
       description="I have automated the extraction and processing of data from multiple web pages using tools like Selenium and Pandas, structuring the information into formats such as Excel and JSON. I have designed workflows that reduced operational task time by over 40%, optimizing data collection, cleaning, and consolidation to enhance decision-making. My responsibilities include developing scripts for automatic data integration and analysis, minimizing manual intervention and improving process accuracy. I have also worked on optimizing data pipelines to ensure efficiency and scalability."
       explink="#"
     />
-
     <CardExperience
       work="Teaching Assistants"
       company="UNMSM - FISI"
-      date="April 2024 - July 2024"
+      date="Apr. 2024 - Jul. 2024"
       description="I have taught algorithm design and analysis to 58 students, fostering a high-quality education that encouraged logical and critical thinking. Through interactive virtual sessions and collaborative platforms, I developed educational materials and practical exercises to enhance the understanding of complex concepts. Using computational tools and document formatting systems, I streamlined the creation of resources that facilitated student learning. Additionally, by leveraging version control and code editors, I coordinated and supervised student projects, achieving a 97% pass rate with grades above 16."
       explink="#"
     />
     <CardExperience
       work="IT support"
       company="UNMSM - FISI"
-      date="January 2023 - March 2023"
+      date="Jan. 2023 - Mar. 2023"
       description="I have provided support and maintenance for over 300 computers in laboratories and offices, ensuring optimal performance through hardware diagnostics and system management tools. I assembled and configured 70 new devices, optimizing their efficiency and usability. Using inventory tracking systems and network simulation tools, I conducted precise audits of more than 300 devices and configured networks, improving connectivity and reducing downtime by 30%. Additionally, by leveraging scripting and disk management utilities, I resolved daily technical issues, achieving a 95% resolution rate and maintaining high user satisfaction."
       explink="#"
     />
@@ -44,5 +43,10 @@ import CardExperience from "./card-experience.astro";
     display: flex;
     flex-direction: column;
     gap: 40px;
+  }
+  @media (width < 800px) {
+    .container-experience {
+      margin: 0 20px 0 20px;
+    }
   }
 </style>
