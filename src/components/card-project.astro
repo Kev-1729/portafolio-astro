@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   imagen: string;
   title: string;
@@ -10,16 +12,23 @@ const { imagen, title, description, tag } = Astro.props as Props;
 ---
 
 <div class="card-proyecto">
-  <img class="img-proyecto" src={imagen} alt="Proyecto-1" />
+  <img class="img-proyecto" src={imagen} alt={title} />
   <div class="card-information">
     <h3>{title}</h3>
     <p>{description}</p>
     <div class="tags">
-      {tag && tag.map((t) => <span class="tag">{t}</span>)}
+      {
+        tag &&
+          tag.map((t) => (
+            <span class="tag">
+              <Icon name={t} />
+            </span>
+          ))
+      }
     </div>
     <div class="buttons">
-      <div class="button">Code</div>
-      <div class="button">Preview</div>
+      <a href="#" class="button">Code</a>
+      <a href="#" class="button">Preview</a>
     </div>
   </div>
 </div>

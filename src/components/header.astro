@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <!-- Hero Section -->
 <header id="yo" class="hero-section">
   <div class="container">
@@ -17,14 +21,14 @@
           target="_blank"
           class="btn btn-outline-dark me-2"
         >
-          <span>GitHub</span>
+          <Icon name="github" />
         </a>
         <a
           href="https://www.linkedin.com/in/kevin-tupac-ag%C3%BCero/"
           target="_blank"
           class="btn btn-outline-primary me-2"
         >
-          <span>LinkedIn</span>
+          <Icon name="linkedin" />
         </a>
         <!-- Botón para descargar el CV -->
         <a
@@ -32,8 +36,7 @@
           download="Kevin-Tupac-CV.pdf"
           class="btn btn-outline-success me-2"
         >
-          <span class="pc">Download CV</span>
-          <span class="movil">Down. CV</span>
+          <Icon name="download" />
         </a>
       </div>
     </div>
@@ -102,10 +105,8 @@
     gap: 10px;
   }
   .btn {
-    font-size: 1em;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    display: flex;
   }
   .btn-primary {
     background-color: #131b4d;
@@ -114,7 +115,6 @@
   .btn-outline-dark {
     background-color: white;
     border: 2px solid white;
-    color: black;
   }
   .btn-outline-primary {
     background-color: #0d6efd;
@@ -144,9 +144,6 @@
     color: black;
   }
 */
-  .movil {
-    display: none;
-  }
   /* ------------------ Media Queries ------------------ */
   @media (width< 770px) {
     /* Navbar centrado y con mayor separación */
@@ -184,13 +181,6 @@
 
     .image-container img {
       height: 200px;
-    }
-
-    .movil {
-      display: block;
-    }
-    .pc {
-      display: none;
     }
   }
 </style>
