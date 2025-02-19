@@ -2,15 +2,18 @@
 interface Props {
   image: string;
   name: string;
+  link: string;
   description: string;
   work: string;
 }
-const { image, name, work, description } = Astro.props;
+const { image, name, work, description, link } = Astro.props;
 ---
 
 <div class="slide">
   <div class="testimonial-card">
-    <img src={image} alt="Usuario" />
+    <a href={link}>
+      <img src={image} alt="Usuario" />
+    </a>
     <h3>{name}</h3>
     <p>{work}</p>
     <div class="texto-people">
