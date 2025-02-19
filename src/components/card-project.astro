@@ -6,13 +6,18 @@ interface Props {
   title: string;
   description: string;
   tag: string[];
+  link_github: string;
+  link_deploy: string;
 }
 
-const { imagen, title, description, tag } = Astro.props as Props;
+const { imagen, title, description, tag, link_github, link_deploy } =
+  Astro.props as Props;
 ---
 
 <div class="card-proyecto">
-  <img class="img-proyecto" src={imagen} alt={title} />
+  <div class="card-img">
+    <img class="img-proyecto" src={imagen} alt={title} />
+  </div>
   <div class="card-information">
     <h3>{title}</h3>
     <p>{description}</p>
@@ -27,92 +32,135 @@ const { imagen, title, description, tag } = Astro.props as Props;
       }
     </div>
     <div class="buttons">
-      <a href="#" class="button">Code</a>
-      <a href="#" class="button">Preview</a>
+      <a href={link_github} target="_blank" class="button">
+        <Icon name="github" /> Code
+      </a>
+      <a href={link_deploy} target="_blank" class="button">
+        <Icon name="rocket" /> Preview
+      </a>
     </div>
   </div>
-</div>
-<style>
-  .card-proyecto {
-    border-radius: 15px;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    max-width: 800px;
-  }
-  .img-proyecto {
-    border-radius: 10px;
-    width: 100%;
-    height: 20em;
-    object-fit: cover;
-  }
-  .card-information {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    text-align: left;
-    gap: 10px;
-  }
-
-  .card-information h3 {
-    font-size: 1.5em;
-    color: white;
-  }
-
-  .card-information p {
-    color: white;
-    font-size: 1em;
-    margin-bottom: 0 !important;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .tag {
-    background-color: rgb(255, 255, 255);
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 0.9em;
-    color: black;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  .tag-imagen {
-    border-radius: 10px;
-    width: 100%;
-    height: 1.5em;
-    object-fit: cover;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .button {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    font-weight: bold;
-    transition: 0.3s;
-    color: #131b4d;
-  }
-
-  .button:hover {
-    background-color: #777;
-    color: white;
-  }
-  @media (width < 750px) {
+  <style>
+    /* Contenedor general */
     .card-proyecto {
+      border-radius: 15px;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+      max-width: 900px;
+      /* border: 1px solid red;  <-- Útil para depurar */
+    }
+
+    /* Contenedor de la imagen */
+    .card-img {
+      /* Ajusta el ancho al 50% cuando el viewport es grande */
+      width: 50%;
+
+      /* En lugar de height fija, usamos aspect-ratio para que sea responsivo.
+         (Solo funciona en navegadores modernos; para otros casos, ver notas más abajo) */
+      aspect-ratio: 16/9;
+
+      overflow: hidden; /* Oculta la parte que se salga del contenedor */
+      display: flex; /* Para centrar la imagen */
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px; /* Si deseas esquinas redondeadas */
+    }
+
+    /* Imagen en sí */
+    .card-img .img-proyecto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Se expande manteniendo proporción y recorta sobrante */
+      object-position: center; /* Centra la imagen */
+      display: block; /* Asegura que se comporte como bloque dentro del div */
+    }
+
+    /* Contenedor de información */
+    .card-information {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      height: auto;
+      text-align: left;
+      gap: 10px;
+    }
+
+    .card-information h3 {
+      font-size: 1.5em;
+      color: white;
+    }
+
+    .card-information p {
+      color: white;
+      font-size: 1em;
+      margin-bottom: 0 !important;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background-color: rgb(255, 255, 255);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      color: black;
+      display: flex;
+      align-items: center;
       flex-direction: column;
     }
-  }
-</style>
+
+    .tag-imagen {
+      border-radius: 10px;
+      width: 100%;
+      height: 1.5em;
+      object-fit: cover;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      height: 40px;
+    }
+
+    .button {
+      background-color: white;
+      padding: 7px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-weight: bold;
+      transition: 0.3s;
+      color: #131b4d;
+      width: -webkit-fill-available;
+      justify-content: center;
+    }
+
+    a:hover {
+      background-color: rgb(212, 212, 212);
+      color: white;
+    }
+
+    /* RESPONSIVE: cuando el ancho de pantalla es menor a 750px */
+    @media (max-width: 750px) {
+      .card-proyecto {
+        flex-direction: column;
+        /* Para que no queden espacios en blanco:
+           si deseas que ambos contenedores ocupen 100% en mobile, quítales el 50% */
+      }
+
+      .card-img,
+      .card-information {
+        width: 100%;
+        aspect-ratio: auto; /* Para que la altura se adapte libremente en mobile */
+      }
+    }
+  </style>
+</div>
